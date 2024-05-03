@@ -11,8 +11,8 @@ app.post("/split", (req, res) => {
       .status(400)
       .json({ error: "Invalid input, please provide a string." });
   }
-  // Usando um método de split apropriado para manter '?' e remover '.'
-  const splitSentence = sentence.split(/(?<=\?)|\. /);
+  // Adicionando '!' à expressão regular para dividir da mesma maneira que '.'
+  const splitSentence = sentence.split(/(?<=\? )|\. |\! /);
   res.json({ splitSentence });
 });
 
