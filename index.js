@@ -11,8 +11,8 @@ app.post("/split", (req, res) => {
       .status(400)
       .json({ error: "Invalid input, please provide a string." });
   }
-  // Usando uma expressão regular com lookahead positivo para manter '?' ao dividir
-  const splitSentence = sentence.split(/(?<=\?)|(?=\. )/).filter(Boolean);
+  // Dividindo por '. ' mas mantendo '?' ao dividir
+  const splitSentence = sentence.split(/(?<!\?)\. /);
   res.json({ splitSentence });
 });
 
